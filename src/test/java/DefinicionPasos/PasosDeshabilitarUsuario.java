@@ -20,6 +20,7 @@ public class PasosDeshabilitarUsuario {
     public void esperarRenderizar(String xpath) {
         try {
             DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            Thread.sleep(2000);
         } catch (Exception e) {
             System.out.println("Error al entra a soporte" + e.getMessage());
         }
