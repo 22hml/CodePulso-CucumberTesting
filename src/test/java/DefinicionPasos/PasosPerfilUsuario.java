@@ -15,6 +15,11 @@ public class PasosPerfilUsuario {
     @And("hacer click en perfil {string}")
     public void iraPerfil(String xpath) {
         try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    	try {
         	driver.findElement(By.xpath(xpath)).click();
         } catch (Exception e) {
             System.out.println("Error al entra al perfil" + e.getMessage());
@@ -31,6 +36,17 @@ public class PasosPerfilUsuario {
             System.out.println("Error al cargar el archivo: " + e.getMessage());
         }
     }
+
+    @Then("cargar archivo en el campo de carga de imagen {string} con el archivo valido")
+    public void cargarArchivoValido(String xpath) {
+        try {
+            WebElement inputFile = driver.findElement(By.xpath(xpath));
+            String rutaAbsoluta = Paths.get("src/test/resources/assets/testTicket.jpg").toAbsolutePath().toString();
+            inputFile.sendKeys(rutaAbsoluta);
+        } catch (Exception e) {
+            System.out.println("Error al cargar el archivo: " + e.getMessage());
+        }
+    }
     
     @Then("esperar mensaje de error {string}")
     public void esperarError(String xpath) {
@@ -39,6 +55,15 @@ public class PasosPerfilUsuario {
             Thread.sleep(1000);
         } catch (Exception e) {
             System.out.println("Error al cargar el archivo: " + e.getMessage());
+        }
+    }
+
+    @Then("esperar actualizacion")
+    public void esperar_actualizacion() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
     }
 }
