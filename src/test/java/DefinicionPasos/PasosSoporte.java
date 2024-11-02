@@ -96,7 +96,6 @@ public class PasosSoporte {
         try {
             DriverManager.getWait().until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
         	driver.findElement(By.xpath(xpath)).click();
-        	Thread.sleep(3000);
         } catch (Exception e) {
             System.out.println("Error al hacer click enviar ticket " + e.getMessage());
         }
@@ -116,6 +115,7 @@ public class PasosSoporte {
     @Then("ver detalle de ticket")
     public void verDetalleTicket() {
         try {
+            Thread.sleep(1000);
             WebElement ultimoBoton = DriverManager.getWait().until(ExpectedConditions.elementToBeClickable(By.xpath("//table[@class='p-datatable-table']/tbody/tr[last()]/td[last()]/button")));
             ultimoBoton.click();
         } catch (Exception e) {
@@ -176,7 +176,7 @@ public class PasosSoporte {
     @Then("checkear ultimo ticket prioridad alta")
     public void verUltimoTicketPrioridad() {
         try {
-            WebElement ultimaFila = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//table[@class='p-datatable-table']/tbody/tr[last()]")));
+            WebElement ultimaFila = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//table[@class='p-datatable-table']/tbody/tr[td[contains(text(), 'Algoooo, este texto tiene que tener minimo 10 de largo, Saludos.')]]")));
             Assert.assertTrue("La última fila no contiene el texto 'Alta'.", ultimaFila.getText().contains("Alta"));
         } catch (Exception e) {
             System.out.println("Error al ver el último ticket con prioridad alta: " + e.getMessage());
