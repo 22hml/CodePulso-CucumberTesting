@@ -1,6 +1,6 @@
 Feature: Creación de Tickets
 
-Scenario: Creación de ticket con imagen adjunta
+Background: 
   Given al navegar hasta la url "https://bridge.codepulso.com/"
   When hacer click en el campo de usuario "//*[@id='root']/section/section/div[2]/form/input"
   Then coloca en el campo usuario "//*[@id='root']/section/section/div[2]/form/input" el usuario "noblock"
@@ -8,6 +8,9 @@ Scenario: Creación de ticket con imagen adjunta
   Then coloca en el campo contraseña "//*[@id='root']/section/section/div[2]/form/div/input" la contraseña "noblock1"
   Then apretar boton de inicio sesion "//*[@id='root']/section/section/div[2]/form/button"
   Then esperar el inicio de sesion "//*[@id='root']/div/nav/ul/a[1]"
+	
+
+Scenario: Creación de ticket con imagen adjunta
   And hacer click en soporte "//*[@id='root']/div/nav/ul/a[2]"
   Then hacer click en boton de crear ticket "//*[@id='root']/div/main/section/div[1]/div/button[1]"
   Then escribir algo en el input de titulo "//*[@id='root']/div/main/section/div[1]/div[2]/div/form/label[2]/input"
@@ -20,13 +23,6 @@ Scenario: Creación de ticket con imagen adjunta
   Then comprobar imagen "//*[@id='root']/div/main/section/div[1]/div[2]/div/section[1]"
   
 Scenario: Creación de ticket sin titulo
-  Given al navegar hasta la url "https://bridge.codepulso.com/"
-  When hacer click en el campo de usuario "//*[@id='root']/section/section/div[2]/form/input"
-  Then coloca en el campo usuario "//*[@id='root']/section/section/div[2]/form/input" el usuario "noblock"
-  When hacer click en el campo de contraseña "//*[@id='root']/section/section/div[2]/form/div/input"
-  Then coloca en el campo contraseña "//*[@id='root']/section/section/div[2]/form/div/input" la contraseña "noblock1"
-  Then apretar boton de inicio sesion "//*[@id='root']/section/section/div[2]/form/button"
-  Then esperar el inicio de sesion "//*[@id='root']/div/nav/ul/a[1]"
   And hacer click en soporte "//*[@id='root']/div/nav/ul/a[2]"
   Then hacer click en boton de crear ticket "//*[@id='root']/div/main/section/div[1]/div/button[1]"
   Then escribir algo en la desc "//*[@id='root']/div/main/section/div[1]/div[2]/div/form/textarea"
@@ -34,13 +30,6 @@ Scenario: Creación de ticket sin titulo
   Then no deja crear ticket
   
 Scenario: Creación de ticket sin descripción
-  Given al navegar hasta la url "https://bridge.codepulso.com/"
-  When hacer click en el campo de usuario "//*[@id='root']/section/section/div[2]/form/input"
-  Then coloca en el campo usuario "//*[@id='root']/section/section/div[2]/form/input" el usuario "noblock"
-  When hacer click en el campo de contraseña "//*[@id='root']/section/section/div[2]/form/div/input"
-  Then coloca en el campo contraseña "//*[@id='root']/section/section/div[2]/form/div/input" la contraseña "noblock1"
-  Then apretar boton de inicio sesion "//*[@id='root']/section/section/div[2]/form/button"
-  Then esperar el inicio de sesion "//*[@id='root']/div/nav/ul/a[1]"
   And hacer click en soporte "//*[@id='root']/div/nav/ul/a[2]"
   Then hacer click en boton de crear ticket "//*[@id='root']/div/main/section/div[1]/div/button[1]"
   Then escribir algo en el input de titulo "//*[@id='root']/div/main/section/div[1]/div[2]/div/form/label[2]/input"
@@ -48,13 +37,6 @@ Scenario: Creación de ticket sin descripción
   Then ver mensaje de error "//*[@id='root']/div/main/section/div[1]/div[2]/div/form/p"
   
 Scenario: Error al subir una imagen muy grande en un ticket
-  Given al navegar hasta la url "https://bridge.codepulso.com/"
-  When hacer click en el campo de usuario "//*[@id='root']/section/section/div[2]/form/input"
-  Then coloca en el campo usuario "//*[@id='root']/section/section/div[2]/form/input" el usuario "noblock"
-  When hacer click en el campo de contraseña "//*[@id='root']/section/section/div[2]/form/div/input"
-  Then coloca en el campo contraseña "//*[@id='root']/section/section/div[2]/form/div/input" la contraseña "noblock1"
-  Then apretar boton de inicio sesion "//*[@id='root']/section/section/div[2]/form/button"
-  Then esperar el inicio de sesion "//*[@id='root']/div/nav/ul/a[1]"
   And hacer click en soporte "//*[@id='root']/div/nav/ul/a[2]"
   Then hacer click en boton de crear ticket "//*[@id='root']/div/main/section/div[1]/div/button[1]"
   Then escribir algo en el input de titulo "//*[@id='root']/div/main/section/div[1]/div[2]/div/form/label[2]/input"
@@ -63,13 +45,6 @@ Scenario: Error al subir una imagen muy grande en un ticket
   Then ver mensaje de error imagen "//*[@id='root']/div/main/section/div[1]/div[2]/div/form/p"
 
 Scenario: Creación de ticket con prioridad alta
-  Given al navegar hasta la url "https://bridge.codepulso.com/"
-  When hacer click en el campo de usuario "//*[@id='root']/section/section/div[2]/form/input"
-  Then coloca en el campo usuario "//*[@id='root']/section/section/div[2]/form/input" el usuario "noblock"
-  When hacer click en el campo de contraseña "//*[@id='root']/section/section/div[2]/form/div/input"
-  Then coloca en el campo contraseña "//*[@id='root']/section/section/div[2]/form/div/input" la contraseña "noblock1"
-  Then apretar boton de inicio sesion "//*[@id='root']/section/section/div[2]/form/button"
-  Then esperar el inicio de sesion "//*[@id='root']/div/nav/ul/a[1]"
   And hacer click en soporte "//*[@id='root']/div/nav/ul/a[2]"
   Then hacer click en boton de crear ticket "//*[@id='root']/div/main/section/div[1]/div/button[1]"
   And seleccionar la opción "Alta" en el select "//*[@id='root']/div/main/section/div[1]/div[2]/div/form/label[1]/select"

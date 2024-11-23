@@ -46,5 +46,24 @@ public class PasosMenuPrincipal {
         }
     }
     
+    @Then("esperar visualizacion de app {string}")
+    public void esperarApp(String xpath) {
+        try {
+            DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+        } catch (Exception e) {
+            System.out.println("Error al entra a soporte" + e.getMessage());
+        }
+    }
+    
+    @Then("ingresar a app disponible  {string}")
+    public void ingresarApp(String xpath) {
+        try {
+            WebElement boton = DriverManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            boton.click();
+        } catch (Exception e) {
+            System.out.println("Error al entra a soporte" + e.getMessage());
+        }
+    }
+    
     
 }
